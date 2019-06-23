@@ -1,7 +1,7 @@
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import model.AAData;
+import model.Data;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
 import org.openspaces.core.space.UrlSpaceConfigurer;
@@ -15,24 +15,30 @@ import java.util.Map;
 
 public class Main{
 
-    private final static String SPACE_NAME = "sql-test-space";
-    private final static String CSV_FILE = "Pax11.csv";
+    private final static String SPACE_NAME = "demo";
+    private final static String CSV_FILE = "Pax11_short.csv";
 
     public static void main(String[] args) {
-        GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/" + SPACE_NAME)).create();
+        String spaceName = SPACE_NAME;
+
+//        String locators = "rocksdb-manager-xap-manager-0.rocksdb-manager-xap-manager-hs.default.svc.cluster.local";
+
+        String url = "jini://*/*/" + spaceName;
+
+        GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer(url)).create();
 
         InputStream is = Main.class.getClassLoader().getResourceAsStream(CSV_FILE);
         try {
             ColumnPositionMappingStrategy strategy = new ColumnPositionMappingStrategy();
-            strategy.setType(AAData.class);
+            strategy.setType(Data.class);
             Map<Integer, String> columnMapping = createColumnMapping();
             String[] fields = new String[columnMapping.values().size()];
             for (int i = 0; i < 50; i++) {
                 fields[i] = columnMapping.get(i);
             }
             strategy.setColumnMapping(fields);
-            CsvToBean csvToBean = new CsvToBeanBuilder<AAData>(new InputStreamReader(is)).withSkipLines(1).withType(AAData.class).withMappingStrategy(strategy).withIgnoreLeadingWhiteSpace(true).build();
-            List<AAData> dataList = csvToBean.parse();
+            CsvToBean csvToBean = new CsvToBeanBuilder<Data>(new InputStreamReader(is)).withSkipLines(1).withType(Data.class).withMappingStrategy(strategy).withIgnoreLeadingWhiteSpace(true).build();
+            List<Data> dataList = csvToBean.parse();
             space.writeMultiple(dataList.toArray());
         } catch (Exception e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@ import java.util.Objects;
 
 
 @SpaceClass
-public class AAData implements Serializable {
+public class Data implements Serializable {
     private String id;
 
     @CsvBindByPosition(position = 0)
@@ -178,7 +178,7 @@ public class AAData implements Serializable {
         this.id = id;
     }
 
-    public AAData() {
+    public Data() {
     }
 
     public Date getAdj_ticket_date() {
@@ -585,57 +585,57 @@ public class AAData implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AAData aaData = (AAData) o;
-        return ly_revenue == aaData.ly_revenue &&
-                ly_pax == aaData.ly_pax &&
-                ty_pax == aaData.ty_pax &&
-                Revenue_to_pax == aaData.Revenue_to_pax &&
-                ty_revenue == aaData.ty_revenue &&
-                number_of_records == aaData.number_of_records &&
-                pax == aaData.pax &&
-                Double.compare(aaData.revenue, revenue) == 0 &&
-                rpms == aaData.rpms &&
-                Objects.equals(adj_ticket_date, aaData.adj_ticket_date) &&
-                Objects.equals(analyst, aaData.analyst) &&
-                Objects.equals(bkg_src_cd, aaData.bkg_src_cd) &&
-                Objects.equals(cart_nbr, aaData.cart_nbr) &&
-                Objects.equals(coach_competitive_group, aaData.coach_competitive_group) &&
-                Objects.equals(codeshare, aaData.codeshare) &&
-                Objects.equals(connect_pt, aaData.connect_pt) &&
-                Objects.equals(customer_type, aaData.customer_type) &&
-                Objects.equals(max_adj_ticket_date, aaData.max_adj_ticket_date) &&
-                Objects.equals(inventory, aaData.inventory) &&
-                Objects.equals(inventorymdf, aaData.inventorymdf) &&
-                Objects.equals(departure_date, aaData.departure_date) &&
-                Objects.equals(deptseason, aaData.deptseason) &&
-                Objects.equals(elite_status, aaData.elite_status) &&
-                Objects.equals(fare_type, aaData.fare_type) &&
-                Objects.equals(fbc, aaData.fbc) &&
-                Objects.equals(hub, aaData.hub) &&
-                Objects.equals(lylty_level_cd, aaData.lylty_level_cd) &&
-                Objects.equals(lytydept, aaData.lytydept) &&
-                Objects.equals(lyty, aaData.lyty) &&
-                Objects.equals(market, aaData.market) &&
-                Objects.equals(market_metro, aaData.market_metro) &&
-                Objects.equals(metro_od, aaData.metro_od) &&
-                Objects.equals(mileage_band, aaData.mileage_band) &&
-                Objects.equals(mkt_type, aaData.mkt_type) &&
-                Objects.equals(ns_flow, aaData.ns_flow) &&
-                Objects.equals(op_airline, aaData.op_airline) &&
-                Objects.equals(op_cabin_type, aaData.op_cabin_type) &&
-                Objects.equals(pax_type, aaData.pax_type) &&
-                Objects.equals(premium_mkt_type, aaData.premium_mkt_type) &&
-                Objects.equals(pricing_od, aaData.pricing_od) &&
-                Objects.equals(prime_chanl_type_cd, aaData.prime_chanl_type_cd) &&
-                Objects.equals(region, aaData.region) &&
-                Objects.equals(spoke, aaData.spoke) &&
-                Objects.equals(spoke_test, aaData.spoke_test) &&
-                Objects.equals(tariff, aaData.tariff) &&
-                Objects.equals(terty_chanl_type_cd, aaData.terty_chanl_type_cd) &&
-                Objects.equals(test_name, aaData.test_name) &&
-                Objects.equals(ticket_date, aaData.ticket_date) &&
-                Objects.equals(tkt_ap, aaData.tkt_ap) &&
-                Objects.equals(ym_hub_nm, aaData.ym_hub_nm);
+        Data data = (Data) o;
+        return ly_revenue == data.ly_revenue &&
+                ly_pax == data.ly_pax &&
+                ty_pax == data.ty_pax &&
+                Revenue_to_pax == data.Revenue_to_pax &&
+                ty_revenue == data.ty_revenue &&
+                number_of_records == data.number_of_records &&
+                pax == data.pax &&
+                Double.compare(data.revenue, revenue) == 0 &&
+                rpms == data.rpms &&
+                Objects.equals(adj_ticket_date, data.adj_ticket_date) &&
+                Objects.equals(analyst, data.analyst) &&
+                Objects.equals(bkg_src_cd, data.bkg_src_cd) &&
+                Objects.equals(cart_nbr, data.cart_nbr) &&
+                Objects.equals(coach_competitive_group, data.coach_competitive_group) &&
+                Objects.equals(codeshare, data.codeshare) &&
+                Objects.equals(connect_pt, data.connect_pt) &&
+                Objects.equals(customer_type, data.customer_type) &&
+                Objects.equals(max_adj_ticket_date, data.max_adj_ticket_date) &&
+                Objects.equals(inventory, data.inventory) &&
+                Objects.equals(inventorymdf, data.inventorymdf) &&
+                Objects.equals(departure_date, data.departure_date) &&
+                Objects.equals(deptseason, data.deptseason) &&
+                Objects.equals(elite_status, data.elite_status) &&
+                Objects.equals(fare_type, data.fare_type) &&
+                Objects.equals(fbc, data.fbc) &&
+                Objects.equals(hub, data.hub) &&
+                Objects.equals(lylty_level_cd, data.lylty_level_cd) &&
+                Objects.equals(lytydept, data.lytydept) &&
+                Objects.equals(lyty, data.lyty) &&
+                Objects.equals(market, data.market) &&
+                Objects.equals(market_metro, data.market_metro) &&
+                Objects.equals(metro_od, data.metro_od) &&
+                Objects.equals(mileage_band, data.mileage_band) &&
+                Objects.equals(mkt_type, data.mkt_type) &&
+                Objects.equals(ns_flow, data.ns_flow) &&
+                Objects.equals(op_airline, data.op_airline) &&
+                Objects.equals(op_cabin_type, data.op_cabin_type) &&
+                Objects.equals(pax_type, data.pax_type) &&
+                Objects.equals(premium_mkt_type, data.premium_mkt_type) &&
+                Objects.equals(pricing_od, data.pricing_od) &&
+                Objects.equals(prime_chanl_type_cd, data.prime_chanl_type_cd) &&
+                Objects.equals(region, data.region) &&
+                Objects.equals(spoke, data.spoke) &&
+                Objects.equals(spoke_test, data.spoke_test) &&
+                Objects.equals(tariff, data.tariff) &&
+                Objects.equals(terty_chanl_type_cd, data.terty_chanl_type_cd) &&
+                Objects.equals(test_name, data.test_name) &&
+                Objects.equals(ticket_date, data.ticket_date) &&
+                Objects.equals(tkt_ap, data.tkt_ap) &&
+                Objects.equals(ym_hub_nm, data.ym_hub_nm);
     }
 
     @Override
